@@ -1,4 +1,4 @@
-#if defined(BUILDING_LIBRZU) && defined(_WIN32)
+#if defined(BUILDING_LIBICONV) && defined(_WIN32)
 	/* Building shared library. */
 #  define LIBICONV_DLL_EXPORTED __declspec(dllexport)
 #elif defined(USING_RZU_SHARED) && defined(_WIN32)
