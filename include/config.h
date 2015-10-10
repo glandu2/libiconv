@@ -1,7 +1,7 @@
 #if defined(BUILDING_LIBICONV) && defined(_WIN32)
 	/* Building shared library. */
 #  define LIBICONV_DLL_EXPORTED __declspec(dllexport)
-#elif defined(USING_RZU_SHARED) && defined(_WIN32)
+#elif defined(USING_ICONV_SHARED) && defined(_WIN32)
 	/* Using shared library. */
 #  define LIBICONV_DLL_EXPORTED __declspec(dllimport)
 #elif (defined(BUILDING_LIBICONV) || defined(USING_ICONV_SHARED)) && __GNUC__ >= 4
