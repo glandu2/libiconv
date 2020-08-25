@@ -1,4 +1,4 @@
-/* Copyright (C) 1999-2003, 2005-2006, 2008-2011 Free Software Foundation, Inc.
+/* Copyright (C) 1999-2019 Free Software Foundation, Inc.
    This file is part of the GNU LIBICONV Library.
 
    The GNU LIBICONV Library is free software; you can redistribute it
@@ -13,17 +13,17 @@
 
    You should have received a copy of the GNU Library General Public
    License along with the GNU LIBICONV Library; see the file COPYING.LIB.
-   If not, write to the Free Software Foundation, Inc., 51 Franklin Street,
-   Fifth Floor, Boston, MA 02110-1301, USA.  */
+   If not, see <https://www.gnu.org/licenses/>.  */
 
 /* When installed, this file is called "iconv.h". */
 
 #ifndef _LIBICONV_H
 #define _LIBICONV_H
 
+#define _LIBICONV_VERSION 0x0110    /* version number: (major<<8) + minor */
+
 #include "config.h"
 
-#define _LIBICONV_VERSION 0x010E    /* version number: (major<<8) + minor */
 extern LIBICONV_DLL_EXPORTED int _libiconv_version; /* Likewise */
 
 /* We would like to #include any system header file which could define
@@ -58,7 +58,7 @@ typedef void* iconv_t;
    have EILSEQ in a different header.  On these systems, define EILSEQ
    ourselves. */
 #ifndef EILSEQ
-#define EILSEQ EILSEQ
+#define EILSEQ 84
 #endif
 
 
@@ -100,8 +100,8 @@ extern LIBICONV_DLL_EXPORTED int iconv_close (iconv_t cd);
 
 /* Nonstandard extensions. */
 
-#if USE_MBSTATE_T
-#if BROKEN_WCHAR_H
+#if 0
+#if 0
 /* Tru64 with Desktop Toolkit C has a bug: <stdio.h> must be included before
    <wchar.h>.
    BSD/OS 4.0.1 has a bug: <stddef.h>, <stdio.h> and <time.h> must be
@@ -121,7 +121,7 @@ extern "C" {
    A pointer to such an object can be used as an iconv_t. */
 typedef struct {
   void* dummy1[28];
-#if USE_MBSTATE_T
+#if 0
   mbstate_t dummy2;
 #endif
 } iconv_allocation_t;
@@ -168,7 +168,7 @@ typedef void (*iconv_unicode_uc_to_mb_fallback)
                                          void* callback_arg),
               void* callback_arg,
               void* data);
-#if HAVE_WCHAR_T
+#if 1
 /* Fallback function.  Invoked when a number of bytes could not be converted to
    a wide character.  This function should process all bytes from inbuf and may
    produce replacement wide characters by calling the write_replacement
