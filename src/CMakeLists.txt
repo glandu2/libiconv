@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.12)
+cmake_minimum_required(VERSION 3.13)
 
 option(ICONV_USE_EXTRA_ENCODINGS "Add support for a few rarely used encodings" OFF)
 set(ICONV_CONST "const")
